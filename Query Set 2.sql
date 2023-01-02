@@ -7,6 +7,7 @@ description TEXT,
 sales NUMERIC)
 
 --Query 2
+
 INSERT INTO product_summary
 VALUES
 ('2014', 'BANANA Organic', '176818.73'),
@@ -15,11 +16,13 @@ VALUES
 ('2014', 'ChickenBreastBoneless/Skinless', '204630.90')
 
 --Query 3
+
 UPDATE product_summary
 SET year = 2022
 WHERE description = 'AVOCADO Hass Organic'
 
 --Query 4
+
 DELETE FROM product_summary
 WHERE description = 'BANANA Organic'
 AND year = '2014'
@@ -36,7 +39,7 @@ WHERE EXTRACT (YEAR from dept_date.date)= 2015
 GROUP BY dept_date.department, Dept.dept_name
 order by sum(spend) DESC;
 
---Query 6 Revised
+--Query 6
 
 SELECT DISTINCT (osd.card_no) as card_no,
 EXTRACT (YEAR FROM osd.date) as `Year`,
@@ -50,7 +53,7 @@ ORDER BY spend DESC
 LIMIT 10;
 
 
---Query 7 Revised
+--Query 7
 
 SELECT COUNT(*) AS Num_Rows,
 COUNT(DISTINCT(card_no)) AS Card_no_Count,
@@ -60,6 +63,7 @@ FROM`umt-msba.transactions.transArchive_201001_201003`;
 
 
 --Query 8
+
 SELECT COUNT(*) AS Row_Count,
 COUNT(DISTINCT(card_no)) AS Card_Count,
 sum(total) AS Total_Spend,
@@ -67,7 +71,8 @@ count(distinct(description)) AS Descrip_Count
 FROM`umt-msba.transactions.transArchive_*`
 GROUP BY EXTRACT (YEAR FROM datetime);
 
---Query 9 Revised
+--Query 9
+
 SELECT
 EXTRACT(YEAR FROM datetime) as year,
 sum(total) as Spend,
@@ -86,7 +91,8 @@ GROUP BY year
 ORDER BY year;
 
 
---Query 10 Revised
+--Query 10
+
 SELECT
 EXTRACT(date FROM datetime) as date,
 EXTRACT(HOUR FROM datetime) as hour,
